@@ -8,14 +8,16 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - formulacion.qmd
     - summary.qmd
     - references.qmd
+    
 
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: journal
   pdf:
     documentclass: scrreprt
 
