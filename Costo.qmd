@@ -1,0 +1,5 @@
+# Descripción y Justificación de la Función de Costo
+
+La función de costo por etapa para cada $(x,a)$ está dada por $$
+\mathbf{C}(x,a)=ca+h(x+a)+p\mathbf{E}[(\xi-x-a)^+]
+$$ donde $c$ $h$ y $p$ son constantes positivas que representan el costo unitario de producción, el costo unitario por almacenamiento y el costo unitario por demanda insatisfecha, respectivamente.

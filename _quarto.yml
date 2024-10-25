@@ -9,7 +9,8 @@ book:
     - index.qmd
     - intro.qmd
     - formulacion.qmd
-    - summary.qmd
+    - dinamica.qmd
+    - Costo.qmd
     - references.qmd
     
 
@@ -17,9 +18,8 @@ bibliography: references.bib
 
 format:
   html:
-    theme: journal
+    theme: [journal, theme-dark.scss]
   pdf:
     documentclass: scrreprt
-
 editor: visual
 

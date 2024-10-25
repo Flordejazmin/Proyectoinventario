@@ -1,0 +1,13 @@
+# Dinámica del Modelo
+
+La dinámica del sistema evoluciona en el tiempo, de modo que en cada etapa de desición $t\in \{ 0,1,2, \dotso,N \}$ el nivel de inventario es $x_t=x \in \mathbf{X}$ y el controlador toma una desición admisible $a_t= a \in A(x)$. Entonces: se produce un costo $\mathbf{C}(x,a)$; luego, el sistema evoluciona a un nuevo estado $x_{t+1}=y \in \mathbf{X}$ de acuerdo a la ley de transición $\mathbf{P}$, la cual explicaremos a detalle en esta sección.
+
+Consideremos que el nivel de inventario evoluciona de acuerdo a la siguiente ecuación: $$x_{t+1}=(x_t+a_t-\xi_t)^{+}=\max(x_t+a_t-\xi_t,0)$$
+
+donde $\{ \xi_t\}$ es una sucesión de variables aleatorias independientes e idénticamente distribuidas. Dicha expresión puede ser interpretada del siguiente modo:la cantidad de producto en el periodo $t+1$, será la cantidad $x_t$ que existía hasta el periodo anterior, más la cantidad $a_t$ solicitada de producto, menos la demanda $\xi_t$ que se surte a los clientes. Dado que no hay acumulación de demanda, la cantidad de producto no puede ser negativa, de manera que, si no se logra surtir toda la demanda, el nivel de inventario al siguiente periodo será cero. Suponemos que el nivel de inventario se a venido monitoreando hata el periodp $t$. Entonces $$
+\mathbf{P}_{x,y}(a)= P[x_{t+1}=y \mid x_t=x, a_t=a]
+$$ $$
+=P[(x_t+a_t-\xi_t)^{+}=y \mid x_t=x, a_t=a]
+$$ $$
+=P[(x+a-\xi_t)^{+}=y]
+$$

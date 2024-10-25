@@ -1,9 +1,7 @@
-# Introduction
+# Introducción
 
-This is a book created from markdown and executable code.
+La teoría de control óptimo trata con problemas de optimización de sistemas dinámicos cuyo comportamiento puede verse influenciado por la aplicación de acciones (decisiones o controles), las cuales son seleccionadas mediante reglas conocidas como estrategias o políticas de control. La eficiencia de cada una de tales políticas se mide mediante un índice de funcionamiento del sistema conocido también como criterio de optimalidad, mismo que representa, ya sea un costo o una ganancia. Entonces el problema de control óptimo consiste en encontrar una estrategia óptima tal que, según sea el caso, minimice o maximice un índice de funcionamiento apropiado.
 
-See @knuth84 for additional discussion of literate programming.
+La intención de este proyecto es presentar una útil aplicación matemática, especificamente mediante la descripción de un sistema de inventario. La dinámica de dicho ejemplo será modelada utilizando un Modelo de Control de Markov. De hecho, muchos trabajos de investigación han abordado ya el estudio de los sistemas de inventario utilizando distintos enfoques, por lo que actualmente existe ya mucha literatura al respecto.
 
-```{r}
-1 + 1
-```
+Para nuestro análisis consideramos espacios de estado y acciones finitos, además de considerar una cantidad finita de transiciones para el sistema y que todos los elementos en el MCM son ya conocidos. Esto con el objetivo de realizar simulaciones computacionales e implementar algoritmos ya conocidos para encontrar la función de valor óptimo, tales como el algoritmo de la programación dinámica y el de iteración de políticas.

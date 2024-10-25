@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – SISTEMA DE INVENTARIO</title>
+<title>3&nbsp; Dinámica del Modelo – SISTEMA DE INVENTARIO</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Costo.html" rel="prev">
+<link href="./Costo.html" rel="next">
+<link href="./formulacion.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -87,6 +69,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -99,7 +110,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dinamica.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dinámica del Modelo</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -144,7 +155,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dinamica.html" class="sidebar-item-text sidebar-link">
+  <a href="./dinamica.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dinámica del Modelo</span></span></a>
   </div>
 </li>
@@ -156,7 +167,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -173,7 +184,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dinámica del Modelo</span></h1>
 </div>
 
 
@@ -190,9 +201,15 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" role="list">
-
-</div>
+<p>La dinámica del sistema evoluciona en el tiempo, de modo que en cada etapa de desición <span class="math inline">\(t\in \{ 0,1,2, \dotso,N \}\)</span> el nivel de inventario es <span class="math inline">\(x_t=x \in \mathbf{X}\)</span> y el controlador toma una desición admisible <span class="math inline">\(a_t= a \in A(x)\)</span>. Entonces: se produce un costo <span class="math inline">\(\mathbf{C}(x,a)\)</span>; luego, el sistema evoluciona a un nuevo estado <span class="math inline">\(x_{t+1}=y \in \mathbf{X}\)</span> de acuerdo a la ley de transición <span class="math inline">\(\mathbf{P}\)</span>, la cual explicaremos a detalle en esta sección.</p>
+<p>Consideremos que el nivel de inventario evoluciona de acuerdo a la siguiente ecuación: <span class="math display">\[x_{t+1}=(x_t+a_t-\xi_t)^{+}=\max(x_t+a_t-\xi_t,0)\]</span></p>
+<p>donde <span class="math inline">\(\{ \xi_t\}\)</span> es una sucesión de variables aleatorias independientes e idénticamente distribuidas. Dicha expresión puede ser interpretada del siguiente modo:la cantidad de producto en el periodo <span class="math inline">\(t+1\)</span>, será la cantidad <span class="math inline">\(x_t\)</span> que existía hasta el periodo anterior, más la cantidad <span class="math inline">\(a_t\)</span> solicitada de producto, menos la demanda <span class="math inline">\(\xi_t\)</span> que se surte a los clientes. Dado que no hay acumulación de demanda, la cantidad de producto no puede ser negativa, de manera que, si no se logra surtir toda la demanda, el nivel de inventario al siguiente periodo será cero. Suponemos que el nivel de inventario se a venido monitoreando hata el periodp <span class="math inline">\(t\)</span>. Entonces <span class="math display">\[
+\mathbf{P}_{x,y}(a)= P[x_{t+1}=y \mid x_t=x, a_t=a]
+\]</span> <span class="math display">\[
+=P[(x_t+a_t-\xi_t)^{+}=y \mid x_t=x, a_t=a]
+\]</span> <span class="math display">\[
+=P[(x+a-\xi_t)^{+}=y]
+\]</span></p>
 
 
 
@@ -619,11 +636,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Costo.html" class="pagination-link" aria-label="Descripción y Justificación de la Función de Costo">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descripción y Justificación de la Función de Costo</span></span>
+      <a href="./formulacion.html" class="pagination-link" aria-label="Formulación del Proceso de decisión de Markov">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Formulación del Proceso de decisión de Markov</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./Costo.html" class="pagination-link" aria-label="Descripción y Justificación de la Función de Costo">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descripción y Justificación de la Función de Costo</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
