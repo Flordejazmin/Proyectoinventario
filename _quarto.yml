@@ -7,7 +7,7 @@ book:
   date: "27/9/2024"
   chapters:
     - index.qmd
-    - intro.qmd
+    - introduccion.qmd
     - formulacion.qmd
     - dinamica.qmd
     - Costo.qmd

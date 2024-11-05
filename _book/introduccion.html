@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – SISTEMA DE INVENTARIO</title>
+<title>1&nbsp; Introducción – SISTEMA DE INVENTARIO</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Costo.html" rel="prev">
+<link href="./formulacion.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -99,7 +81,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./introduccion.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,7 +114,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+  <a href="./introduccion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
@@ -156,7 +138,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -173,7 +155,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></h1>
 </div>
 
 
@@ -190,9 +172,10 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" role="list">
-
-</div>
+<p>La teoría de control óptimo trata con problemas de optimización de sistemas dinámicos cuyo comportamiento puede verse influenciado por la aplicación de acciones (decisiones o controles), las cuales son seleccionadas mediante reglas conocidas como estrategias o políticas de control. La eficiencia de cada una de tales políticas se mide mediante un índice de funcionamiento del sistema conocido también como criterio de optimalidad, mismo que representa, ya sea un costo o una ganancia. Entonces el problema de control óptimo consiste en encontrar una estrategia óptima tal que, según sea el caso, minimice o maximice un índice de funcionamiento apropiado.</p>
+<p>La intención de este proyecto es presentar una útil aplicación matemática, especificamente mediante la descripción de un sistema de inventario. Conocer el nivel de mercancia, comunmente llamado stock, resulta de especial interés, pues permite determinar una estrategia óptima de operación que nos indique la cantidad adecuiada de artículos a solicitar en cada pedido, a fin de satisfacer la demanda y buscando con esto optimizar el costo que conlleva la producción, así como el costo adicional generado por el manejo del stock.</p>
+<p>La dinámica de dicho ejemplo será modelada utilizando un Modelo de Control de Markov. De hecho, muchos trabajos de investigación han abordado ya el estudio de los sistemas de inventario utilizando distintos enfoques, por lo que actualmente existe ya mucha literatura al respecto, misma que será utilizada como referencia.</p>
+<p>Para nuestro análisis consideramos espacios de estado y acciones finitos, además de considerar una cantidad finita de transiciones para el sistema y que todos los elementos en el MCM son ya conocidos. Esto con el objetivo de realizar simulaciones computacionales e implementar algoritmos ya conocidos para encontrar la función de valor óptimo, tales como el algoritmo de la programación dinámica y el de iteración de políticas.</p>
 
 
 
@@ -619,11 +602,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Costo.html" class="pagination-link" aria-label="Descripción y Justificación de la Función de Costo">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descripción y Justificación de la Función de Costo</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./formulacion.html" class="pagination-link" aria-label="Formulación del Proceso de decisión de Markov">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Formulación del Proceso de decisión de Markov</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
