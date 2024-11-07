@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
-<link href="./intro.html" rel="prev">
+<link href="./dinamica.html" rel="next">
+<link href="./introduccion.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -114,8 +143,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  <a href="./introduccion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -126,8 +155,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  <a href="./dinamica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dinámica del Modelo</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Costo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descripción y Justificación de la Función de Costo</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -166,6 +201,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Considere un sistema de inventario a tiempo discreto, de un solo producto y que cuenta con una capacidad finita <span class="math inline">\(M&gt;0\)</span>. supongamos que se pretende maximizar ganancias através dedecidir cuánto producto solicitar a su proveedor a fin de solventar la demanda de sus clientes en cada período y dependiendo del stock (producto en existencia almacenado), cuya información se obtiene al realizar el inventario. Bajo tal escenario, para cada <span class="math inline">\(t\in \{0,1,2, \dotso N\}\)</span> podemos suponer que</p>
+<ul>
+<li><p><span class="math inline">\(x_t\)</span> : representa el nivel de inventario al inicio de cada periodo <span class="math inline">\(t\)</span>.</p></li>
+<li><p><span class="math inline">\(a_n\)</span> : representa la cantidad de producto que se ordena al inicio del periodo <span class="math inline">\(t\)</span>.</p></li>
+<li><p><span class="math inline">\(\xi_t\)</span>: representa la demanda del producto durante el periodo <span class="math inline">\(t\)</span>.</p></li>
+</ul>
+<p>Se asume que la cantidad de producto que se ordena se abastece de forma inmediata, que la demanda que no se satisface en cada periodo se pierde y que el nivel de inventario inicial es <span class="math inline">\(x_0=x \in \mathbf{X}\)</span>.</p>
+<p>De manera que considerando un Modelo de Control de Markov <span class="math display">\[( \mathbf{X}, \mathbf{A}, \{A(x): x \in \mathbf{X}\}, \mathbf{P},\mathbf{C})\]</span> donde, el espacio de estados y controles son: <span class="math display">\[\mathbf{X}=\mathbf{A}=\{0,1,2, \dotso M\}\]</span> El conjunto de controles admisibles cuando el nivel de inventario es <span class="math inline">\(x\in\mathbf{X}\)</span>,es <span class="math display">\[A(x)=\{0,1,2, \dotso,M-x\}\]</span></p>
 
 
 
@@ -592,13 +635,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="./introduccion.html" class="pagination-link" aria-label="Introducción">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link" aria-label="Summary">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./dinamica.html" class="pagination-link" aria-label="Dinámica del Modelo">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dinámica del Modelo</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
