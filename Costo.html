@@ -241,9 +241,17 @@ window.Quarto = {
 </header>
 
 
+<p>Para la función de costo por etapa definimos las constantes</p>
+<ul>
+<li><p><span class="math inline">\(c\)</span> : costo unitario de producción.</p></li>
+<li><p><span class="math inline">\(h\)</span> : costo unitario por almacenamiento</p></li>
+<li><p><span class="math inline">\(p\)</span>: costo unitario por demanda insatisfecha.</p></li>
+</ul>
 <p>La función de costo por etapa para cada <span class="math inline">\((x,a)\)</span> está dada por <span class="math display">\[
 \mathbf{C}(x,a)=ca+h(x+a)+p\mathbf{E}[(\xi-x-a)^+]
-\]</span> donde <span class="math inline">\(c\)</span> <span class="math inline">\(h\)</span> y <span class="math inline">\(p\)</span> son constantes positivas que representan el costo unitario de producción, el costo unitario por almacenamiento y el costo unitario por demanda insatisfecha, respectivamente.</p>
+\]</span> Si el objetivo es mejorar las ganancias a lo largo de <span class="math inline">\(N\)</span> etapas bajo el panorama previamente descrito, entonces esto equivale a minimizar el indice de funcionamiento a continuación <span class="math display">\[
+J(\pi,x):= \mathbf{E}[\sum_{t=0}^{N-1}]
+\]</span></p>
 
 
 
