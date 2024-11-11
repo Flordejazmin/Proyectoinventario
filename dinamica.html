@@ -242,8 +242,9 @@ window.Quarto = {
 
 
 <p>La dinámica del sistema evoluciona en el tiempo, de modo que en cada etapa de desición <span class="math inline">\(t\in \{ 0,1,2, \dotso,N \}\)</span> el nivel de inventario es <span class="math inline">\(x_t=x \in \mathbf{X}\)</span> y el controlador toma una desición admisible <span class="math inline">\(a_t= a \in A(x)\)</span>, es decir, solicita cierta cantidad de articulos de acuerdo a la cantidad existente. Entonces: se produce un costo <span class="math inline">\(\mathbf{C}(x,a)\)</span>; luego, el sistema evoluciona a un nuevo estado <span class="math inline">\(x_{t+1}=y \in \mathbf{X}\)</span> de acuerdo a la ley de transición <span class="math inline">\(\mathbf{P}_{x,y}(a)\)</span>, la cual explicaremos a detalle en esta sección.</p>
-<p>Consideremos que el nivel de inventario es representado en cada periodo por medio de la siguiente ecuación: <span class="math display">\[x_{t+1}=(x_t+a_t-\xi_t)^{+}=\max(x_t+a_t-\xi_t,0)\]</span></p>
-<p>donde <span class="math inline">\(\{ \xi_t\}\)</span> es una sucesión de variables aleatorias independientes e idénticamente distribuidas, que toma valores en <span class="math inline">\(\mathbb{N}_{0}\)</span> y función de probabilidad comun <span class="math inline">\(f\)</span> ya conocida.</p>
+<p>Consideremos <span class="math inline">\(\{ \xi_t\}\)</span> una sucesión de variables aleatorias independientes e idénticamente distribuidas, definidas en el mismo espacio de probabilidad <span class="math inline">\((\Omega,\mathbf{F},P)\)</span>; tal que toman valores en algun conjunto numerable <span class="math inline">\(\mathbf{S}\)</span> y función de probabilidad comun <span class="math inline">\(f\)</span> conocida. Es decir, para cada <span class="math inline">\(k\in\mathbf{S}\)</span> <span class="math display">\[
+f(k)=\mathbf{P}[\xi_t=k]
+\]</span> entonces el nivel de inventario es representado en cada periodo por medio de la siguiente ecuación: <span class="math display">\[x_{t+1}=(x_t+a_t-\xi_t)^{+}=\max(x_t+a_t-\xi_t,0)\]</span></p>
 <p>Dicha expresión puede ser interpretada del siguiente modo: la cantidad de producto en el periodo <span class="math inline">\(t+1\)</span>, será la cantidad <span class="math inline">\(x_t\)</span> que existía hasta el periodo anterior, más la cantidad <span class="math inline">\(a_t\)</span> solicitada de producto, menos la demanda <span class="math inline">\(\xi_t\)</span> que se surte a los clientes. Dado que no hay acumulación de demanda, la cantidad de producto no puede ser negativa, de manera que, si no se logra surtir toda la demanda, el nivel de inventario al siguiente periodo será cero.</p>
 <p>Suponemos que el nivel de inventario se a venido monitoreando hata el periodo <span class="math inline">\(t\)</span>. Entonces <span class="math display">\[
 \mathbf{P}_{x,y}(a)= P[x_{t+1}=y \mid x_t=x, a_t=a]
@@ -251,7 +252,9 @@ window.Quarto = {
 =P[(x_t+a_t-\xi_t)^{+}=y \mid x_t=x, a_t=a]
 \]</span> <span class="math display">\[
 =P[(x+a-\xi_t)^{+}=y]
-\]</span></p>
+\]</span> <span class="math display">\[
+=\sum_{k\in Y}f(k)
+\]</span> donde <span class="math inline">\(Y=\{k \in \mathbf{S} \mid (x+a-k)^+=y\}\)</span></p>
 
 
 
