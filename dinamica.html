@@ -216,8 +216,14 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#ejemplo-consideremos-el-problema-de-control-de-inventario-con-los-siguientes-datos" id="toc-ejemplo-consideremos-el-problema-de-control-de-inventario-con-los-siguientes-datos" class="nav-link active" data-scroll-target="#ejemplo-consideremos-el-problema-de-control-de-inventario-con-los-siguientes-datos"><span class="header-section-number">4</span> Ejemplo: Consideremos el problema de control de inventario con los siguientes datos:</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -245,7 +251,7 @@ window.Quarto = {
 <p>Consideremos <span class="math inline">\(\{ \xi_t\}\)</span> una sucesión de variables aleatorias independientes e idénticamente distribuidas, definidas en el mismo espacio de probabilidad <span class="math inline">\((\Omega,\mathbf{F},P)\)</span>; tal que toman valores en algun conjunto numerable <span class="math inline">\(\mathbf{S}\)</span> y función de probabilidad comun <span class="math inline">\(f\)</span> conocida. Es decir, para cada <span class="math inline">\(k\in\mathbf{S}\)</span> <span class="math display">\[
 f(k)=P[\xi_t=k]
 \]</span> entonces el nivel de inventario es representado en cada periodo por medio de la siguiente ecuación: <span class="math display">\[x_{t+1}=(x_t+a_t-\xi_t)^{+}=\max(x_t+a_t-\xi_t,0)\]</span></p>
-<p>Dicha expresión puede ser interpretada del siguiente modo: la cantidad de producto en el periodo <span class="math inline">\(t+1\)</span>, será la cantidad <span class="math inline">\(x_t\)</span> que existía hasta el periodo anterior, más la cantidad <span class="math inline">\(a_t\)</span> solicitada de producto, menos la demanda <span class="math inline">\(\xi_t\)</span> que se surte a los clientes. Dado que no hay acumulación de demanda, la cantidad de producto no puede ser negativa, de manera que, si no se logra surtir toda la demanda, el nivel de inventario al siguiente periodo será cero.</p>
+<p>Dicha expresión puede ser interpretada del siguiente modo: la cantidad de producto en el periodo <span class="math inline">\(t+1\)</span>, será la cantidad <span class="math inline">\(x_t\)</span> que existía hasta el periodo anterior, más la cantidad <span class="math inline">\(a_t\)</span> solicitada de producto, menos la demanda <span class="math inline">\(\xi_t\)</span> que se surte a los clientes. Dado que no hay acumulación de demanda, la cantidad de producto no puede ser negativa, de manera que, si no se logra surtir toda la demanda, el nivel de inventario en el siguiente periodo será cero.</p>
 <p>Suponemos que el nivel de inventario se a venido monitoreando hata el periodo <span class="math inline">\(t\)</span>. Entonces <span class="math display">\[
 \mathbf{P}_{x,y}(a)= P[x_{t+1}=y \mid x_t=x, a_t=a]
 \]</span> <span class="math display">\[
@@ -255,8 +261,14 @@ f(k)=P[\xi_t=k]
 \]</span> <span class="math display">\[
 =\sum_{k\in Y}f(k)
 \]</span> donde <span class="math inline">\(Y=\{k \in \mathbf{S} \mid (x+a-k)^+=y\}\)</span></p>
+<section id="ejemplo-consideremos-el-problema-de-control-de-inventario-con-los-siguientes-datos" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Ejemplo: Consideremos el problema de control de inventario con los siguientes datos:</h1>
+<p>capacidad del almacen: <span class="math inline">\(M=2\)</span>, de manera que <span class="math display">\[
+\mathbf{X}=\mathbf{A}=\{0,1,2\}
+\]</span> por lo que, existen tres posibilidades: el almacen está vacio, contiene 1 árticulo, o contiene 2 árticulos. Además supongamos que la demanda <span class="math inline">\(\xi_t\)</span> toma valores en el conjunto <span class="math inline">\(\mathbf{S}=\{0,1,2,3\}\)</span> con distribución de probabilidad unifore en todos los periodos, es decir <span class="math inline">\(P[\xi_t=k]=\frac{1}{4}\)</span>, para cada <span class="math inline">\(k\in\mathbf{S}\)</span></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
