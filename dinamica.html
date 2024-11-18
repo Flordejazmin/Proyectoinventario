@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -215,7 +215,7 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#ejemplo-consideremos-el-problema-de-control-de-inventario-con-los-siguientes-datos" id="toc-ejemplo-consideremos-el-problema-de-control-de-inventario-con-los-siguientes-datos" class="nav-link active" data-scroll-target="#ejemplo-consideremos-el-problema-de-control-de-inventario-con-los-siguientes-datos"><span class="header-section-number">3</span> Ejemplo: Consideremos el problema de control de inventario con los siguientes datos:</a></li>
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link active" data-scroll-target="#ejemplo"><span class="header-section-number">3</span> Ejemplo:</a></li>
   </ul>
 </nav>
     </div>
@@ -246,7 +246,7 @@ window.Quarto = {
 f(k)=P[\xi_t=k]
 \]</span> entonces el nivel de inventario es representado en cada periodo por medio de la siguiente ecuación: <span class="math display">\[x_{t+1}=(x_t+a_t-\xi_t)^{+}=\max(x_t+a_t-\xi_t,0)\]</span></p>
 <p>Dicha expresión puede ser interpretada del siguiente modo: la cantidad de producto en el periodo <span class="math inline">\(t+1\)</span>, será la cantidad <span class="math inline">\(x_t\)</span> que existía hasta el periodo anterior, más la cantidad <span class="math inline">\(a_t\)</span> solicitada de producto, menos la demanda <span class="math inline">\(\xi_t\)</span> que se surte a los clientes. Dado que no hay acumulación de demanda, la cantidad de producto no puede ser negativa, de manera que, si no se logra surtir toda la demanda, el nivel de inventario en el siguiente periodo será cero.</p>
-<p>Suponemos que el nivel de inventario se a venido monitoreando hata el periodo <span class="math inline">\(t\)</span>. Entonces <span class="math display">\[
+<p>Suponemos que el nivel de inventario se a venido monitoreando hata el periodo <span class="math inline">\(t\)</span>. Entonces, la probabilidad de contar con una cantidad <span class="math inline">\(x\)</span> de articulos, solicitar <span class="math inline">\(a\)</span> articulos y transitar a un nivel de inventario <span class="math inline">\(y\)</span> es: <span class="math display">\[
 \mathbf{P}_{x,y}(a)= P[x_{t+1}=y \mid x_t=x, a_t=a]
 \]</span> <span class="math display">\[
 =P[(x_t+a_t-\xi_t)^{+}=y \mid x_t=x, a_t=a]
@@ -255,11 +255,84 @@ f(k)=P[\xi_t=k]
 \]</span> <span class="math display">\[
 =\sum_{k\in Y}f(k)
 \]</span> donde <span class="math inline">\(Y=\{k \in \mathbf{S} \mid (x+a-k)^+=y\}\)</span></p>
-<section id="ejemplo-consideremos-el-problema-de-control-de-inventario-con-los-siguientes-datos" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Ejemplo: Consideremos el problema de control de inventario con los siguientes datos:</h1>
-<p>capacidad del almacen: <span class="math inline">\(M=2\)</span>, de manera que <span class="math display">\[
+<section id="ejemplo" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Ejemplo:</h1>
+<p>Consideremos el problema de control de inventario donde la capacidad del almacen es <span class="math inline">\(M=2\)</span>, entonces <span class="math display">\[
 \mathbf{X}=\mathbf{A}=\{0,1,2\}
-\]</span> por lo que, existen tres posibilidades: el almacen está vacio, contiene 1 árticulo, o contiene 2 árticulos. Además supongamos que la demanda <span class="math inline">\(\xi_t\)</span> toma valores en el conjunto <span class="math inline">\(\mathbf{S}=\{0,1,2,3\}\)</span> con distribución de probabilidad unifore en todos los periodos, es decir <span class="math inline">\(P[\xi_t=k]=\frac{1}{4}\)</span>, para cada <span class="math inline">\(k\in\mathbf{S}\)</span>. Entonces tenemos las siguientes probabilidades de transiciónq</p>
+\]</span> por lo que, existen tres posibilidades: el almacen está vacio, contiene 1 árticulo, o contiene 2 árticulos. Además supongamos que la demanda <span class="math inline">\(\xi_t\)</span> toma valores en el conjunto <span class="math inline">\(\mathbf{S}=\{0,1,2,3\}\)</span> con distribución de probabilidad unifore en todos los periodos, es decir <span class="math inline">\(P[\xi_t=k]=\frac{1}{4}\)</span>, para cada <span class="math inline">\(k\in\mathbf{S}\)</span>.</p>
+<p>Para la acción <span class="math inline">\(a_t=0\)</span> la cual es admisible para todos los estados, tenemos la siguiente tabla de transiciones:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 25%">
+<col style="width: 24%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>x</th>
+<th>a</th>
+<th>y</th>
+<th><span class="math inline">\(\mathbf{P}_{x,y}(a)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>contar con <span class="math inline">\(0\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 0 artículos</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>contar con <span class="math inline">\(0\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 1 artículos</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>contar con <span class="math inline">\(0\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 2 artículos</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>contar con <span class="math inline">\(1\)</span> artículo</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 0 artículos</td>
+<td><span class="math inline">\(\frac{3}{4}\)</span></td>
+</tr>
+<tr class="odd">
+<td>contar con <span class="math inline">\(1\)</span> artículo</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 1 artículos</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td>contar con <span class="math inline">\(1\)</span> artículo</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 2 artículos</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>contar con <span class="math inline">\(2\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 0 artículos</td>
+<td><span class="math inline">\(\frac{2}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td>contar con <span class="math inline">\(2\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 1 artículos</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+<tr class="odd">
+<td>contar con <span class="math inline">\(2\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 2 artículos</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
