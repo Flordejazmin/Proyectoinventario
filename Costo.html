@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Descripción y Justificación de la Función de Costo – SISTEMA DE INVENTARIO</title>
+<title>3&nbsp; Descripción y Justificación de la Función de Costo – Sistema de inventario</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,10 +107,10 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="3&nbsp; Descripción y Justificación de la Función de Costo – SISTEMA DE INVENTARIO">
+<meta property="og:title" content="3&nbsp; Descripción y Justificación de la Función de Costo – Sistema de inventario">
 <meta property="og:description" content="">
-<meta property="og:site_name" content="SISTEMA DE INVENTARIO">
-<meta name="twitter:title" content="3&nbsp; Descripción y Justificación de la Función de Costo – SISTEMA DE INVENTARIO">
+<meta property="og:site_name" content="Sistema de inventario">
+<meta name="twitter:title" content="3&nbsp; Descripción y Justificación de la Función de Costo – Sistema de inventario">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -139,7 +139,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">SISTEMA DE INVENTARIO</a> 
+      <a href="./">Sistema de inventario</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="./SISTEMA-DE-INVENTARIO.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
     <div class="dropdown">
@@ -202,7 +202,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
     </ul>
@@ -237,14 +237,15 @@ window.Quarto = {
 
 <p>Para la función de costo por etapa definimos las constantes</p>
 <ul>
-<li><p><span class="math inline">\(c\)</span> : costo unitario de producción.</p></li>
+<li><p><span class="math inline">\(\lambda\)</span> : costo unitario de producción.</p></li>
 <li><p><span class="math inline">\(h\)</span> : costo unitario por almacenamiento</p></li>
 <li><p><span class="math inline">\(p\)</span>: costo unitario por demanda insatisfecha.</p></li>
 </ul>
 <p>La función de costo por etapa para cada <span class="math inline">\((x,a)\)</span> está dada por <span class="math display">\[
-\mathbf{C}(x,a)=ca+h(x+a)+p\mathbf{E}[(\xi-x-a)^+]
-\]</span> Si el objetivo es mejorar las ganancias a lo largo de <span class="math inline">\(N\)</span> etapas bajo el panorama previamente descrito, entonces esto equivale a minimizar el indice de funcionamiento a continuación <span class="math display">\[
-J(\pi,x):= \mathbf{E}[\sum_{t=0}^{N-1}]
+\mathbf{C}(x,a)=\lambda a+h\max\{0,x_t+a_t-\xi_t\}+p\max\{0,\xi_t-x_t-a_t\}
+\]</span> De manera que el costo en cada etapa es igual a la cantidad de unidades solicitadas a producción, considerando el costo de producción, mas el costo de almacenamiento, el cual dependerá del producto en existencia, y considerando que si la demanda excede la producción almacenada se genera un costo de penalización.</p>
+<p>Si el objetivo es mejorar las ganancias a lo largo de <span class="math inline">\(N\)</span> etapas bajo el panorama previamente descrito, entonces esto equivale a minimizar el indice de funcionamiento a continuación <span class="math display">\[
+J(\pi,x):= \mathbf{E}[\sum_{t=0}^{N-1}\mathbf{C}(x,a)]
 \]</span></p>
 
 
@@ -821,8 +822,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
