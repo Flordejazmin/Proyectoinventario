@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Formulación del Proceso de decisión de Markov – Sistema de inventario</title>
+<title>4&nbsp; Justificación de las Acciones – Sistema de inventario</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./dinamica.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./Costo.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -77,40 +77,11 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="1&nbsp; Formulación del Proceso de decisión de Markov – Sistema de inventario">
+<meta property="og:title" content="4&nbsp; Justificación de las Acciones – Sistema de inventario">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="Sistema de inventario">
-<meta name="twitter:title" content="1&nbsp; Formulación del Proceso de decisión de Markov – Sistema de inventario">
+<meta name="twitter:title" content="4&nbsp; Justificación de las Acciones – Sistema de inventario">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -124,7 +95,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./formulacion.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Formulación del Proceso de decisión de Markov</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Acciones.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Justificación de las Acciones</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -183,7 +154,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./formulacion.html" class="sidebar-item-text sidebar-link active">
+  <a href="./formulacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Formulación del Proceso de decisión de Markov</span></span></a>
   </div>
 </li>
@@ -201,7 +172,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Acciones.html" class="sidebar-item-text sidebar-link">
+  <a href="./Acciones.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Justificación de las Acciones</span></span></a>
   </div>
 </li>
@@ -224,7 +195,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Formulación del Proceso de decisión de Markov</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Justificación de las Acciones</span></h1>
 </div>
 
 
@@ -241,14 +212,7 @@ window.Quarto = {
 </header>
 
 
-<p>Considere un sistema de inventario a tiempo discreto, de un solo producto y que cuenta con una capacidad finita <span class="math inline">\(M&gt;0\)</span>. Supongamos que se pretende maximizar ganancias através dedecidir cuánto producto solicitar a su proveedor a fin de solventar la demanda de sus clientes en cada período y dependiendo del stock (producto en existencia almacenado), cuya información se obtiene al realizar el inventario. Bajo tal escenario, para cada <span class="math inline">\(t\in \{0,1,2, \dotso N\}\)</span> podemos suponer que</p>
-<ul>
-<li><p><span class="math inline">\(x_t\)</span> : representa el nivel de inventario al inicio de cada periodo <span class="math inline">\(t\)</span>.</p></li>
-<li><p><span class="math inline">\(a_t\)</span> : representa la cantidad de producto que se ordena al inicio del periodo <span class="math inline">\(t\)</span>.</p></li>
-<li><p><span class="math inline">\(\xi_t\)</span>: representa la demanda del producto durante el periodo <span class="math inline">\(t\)</span>.</p></li>
-</ul>
-<p>Se asume que la cantidad de producto que se ordena se abastece de forma inmediata, que la demanda que no se satisface en cada periodo se pierde y que el nivel de inventario inicial es <span class="math inline">\(x_0=x \in \mathbf{X}\)</span>.</p>
-<p>De manera que considerando un Modelo de Control de Markov <span class="math display">\[( \mathbf{X}, \mathbf{A}, \{A(x): x \in \mathbf{X}\}, \mathbf{P},\mathbf{C})\]</span> donde, el espacio de estados y controles son: <span class="math display">\[\mathbf{X}=\mathbf{A}=\{0,1,2, \dotso M\}\]</span> El conjunto de controles admisibles cuando el nivel de inventario es <span class="math inline">\(x\in\mathbf{X}\)</span>,es <span class="math display">\[A(x)=\{0,1,2, \dotso,M-x\}\]</span></p>
+<p>Existen modelos en los que se asume que la capacidad del inventario es infinita, lo cual pocas veces describe la realidad, es por esto que consideramos que la capacidad con la que contamos es finita, es decir que las acciones que se pueden realizar al estar a cargo de un inventario estan limitadas por la capacidad de la bodega y con la cantidad de producto existente en cada etapa.</p>
 
 
 
@@ -819,13 +783,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Introducción">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introducción</span>
+      <a href="./Costo.html" class="pagination-link" aria-label="Descripción y Justificación de la Función de Costo">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descripción y Justificación de la Función de Costo</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./dinamica.html" class="pagination-link" aria-label="Dinámica del Modelo">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dinámica del Modelo</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
