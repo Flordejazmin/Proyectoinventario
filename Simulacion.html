@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -79,8 +113,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="5&nbsp; Simulación del Proceso – Sistema de inventario">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Sistema de inventario">
 <meta name="twitter:title" content="5&nbsp; Simulación del Proceso – Sistema de inventario">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -216,6 +252,81 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Para faciltar los calculos se realizó el siguiente codigo en python, con el cual se genera la sucesión de acciones óptimas y los costos</p>
+<div id="bb6bb0c8" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámetros</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">4</span> <span class="co"># Períodos</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>CosOrd <span class="op">=</span> <span class="fl">1.2</span>  <span class="co"># Costo por ordenar</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>CosMan <span class="op">=</span> <span class="dv">3</span>  <span class="co"># Costo por mantener</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>CosEsc <span class="op">=</span> <span class="dv">4</span>  <span class="co"># Costo por escasez</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span>[<span class="fl">0.25</span>,<span class="fl">0.25</span>,<span class="fl">0.25</span>,<span class="fl">0.25</span>] <span class="co"># Distribución de probabilidad de la demanda</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>MaxCap <span class="op">=</span> <span class="dv">2</span>  <span class="co"># Máxima capacidad del almacén</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> <span class="dv">3</span>  <span class="co"># Valor máximo de la demanda</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Inicialización de la matriz de costos esperados</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>CostoEsperado <span class="op">=</span> np.zeros((N<span class="op">+</span><span class="dv">1</span> , MaxCap <span class="op">+</span> <span class="dv">1</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>DecisionOptima <span class="op">=</span> np.zeros((N, MaxCap <span class="op">+</span> <span class="dv">1</span>), dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Iteración por etapas</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> l <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, N <span class="op">+</span><span class="dv">1</span>):  <span class="co"># Etapas</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> s <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, MaxCap <span class="op">+</span> <span class="dv">1</span>):  <span class="co"># Estados</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        estado <span class="op">=</span> []</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> a <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, MaxCap <span class="op">-</span> s <span class="op">+</span> <span class="dv">1</span>):  <span class="co"># Acciones</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            esperado <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> w <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, D <span class="op">+</span> <span class="dv">1</span>):  <span class="co"># Demanda</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                esperado <span class="op">+=</span> p[w] <span class="op">*</span> (</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                    CosOrd <span class="op">*</span> a</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                    <span class="op">+</span> CosMan <span class="op">*</span> <span class="bu">max</span>(<span class="dv">0</span>, s <span class="op">+</span> a <span class="op">-</span> w)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                    <span class="op">+</span> CosEsc <span class="op">*</span> <span class="bu">max</span>(<span class="dv">0</span>, w <span class="op">-</span> s <span class="op">-</span> a)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>                    <span class="op">+</span> CostoEsperado[l <span class="op">-</span> <span class="dv">1</span>, <span class="bu">max</span>(<span class="dv">0</span>, s <span class="op">+</span> a <span class="op">-</span> w)]</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>            estado.append(esperado)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Determinación del costo mínimo y la decisión óptima</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        CostoEsperado[l, s] <span class="op">=</span> estado[<span class="dv">0</span>]</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        DecisionOptima[l <span class="op">-</span> <span class="dv">1</span>, s] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> a <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(estado)):</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> estado[a] <span class="op">&lt;</span> CostoEsperado[l, s]:</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>                CostoEsperado[l, s] <span class="op">=</span> estado[a]</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>                DecisionOptima[l <span class="op">-</span> <span class="dv">1</span>, s] <span class="op">=</span> a</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultados</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Matriz de Costos Esperados:"</span>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(CostoEsperado)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Matriz de Decisiones Óptimas:"</span>)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(DecisionOptima)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir la matriz de Costos Esperados como tabla</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tabla de costos esperados:"</span>)</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>costos_df <span class="op">=</span> pd.DataFrame(CostoEsperado, columns<span class="op">=</span>[<span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(MaxCap <span class="op">+</span> <span class="dv">1</span>)],</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>                         index<span class="op">=</span>[<span class="ss">f"Etapa_</span><span class="sc">{</span>N<span class="op">-</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N <span class="op">+</span> <span class="dv">1</span>)])</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(costos_df)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Matriz de Costos Esperados:
+[[ 0.         0.         0.       ]
+ [ 4.95       3.75       3.25     ]
+ [ 9.6        8.4        7.475    ]
+ [14.25      13.05      12.01875  ]
+ [18.9       17.7       16.6421875]]
+Matriz de Decisiones Óptimas:
+[[1 0 0]
+ [1 0 0]
+ [1 0 0]
+ [1 0 0]]
+Tabla de costos esperados:
+             0      1          2
+Etapa_4   0.00   0.00   0.000000
+Etapa_3   4.95   3.75   3.250000
+Etapa_2   9.60   8.40   7.475000
+Etapa_1  14.25  13.05  12.018750
+Etapa_0  18.90  17.70  16.642187</code></pre>
+</div>
+</div>
 
 
 
