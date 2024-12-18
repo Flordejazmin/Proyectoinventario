@@ -52,11 +52,21 @@
   {
     "objectID": "Simulacion.html",
     "href": "Simulacion.html",
-    "title": "5  Simulación del Proceso",
+    "title": "Acción de control óptima",
     "section": "",
-    "text": "Para faciltar los calculos se realizó el siguiente codigo en python, con el cual se genera la sucesión de acciones óptimas y los costos mínimos en cada etapa de decisión considerando cada estado del sistema\n\n\nCódigo\nimport numpy as np\nimport pandas as pd\n\n# Parámetros\nN = 4 # Períodos\nCosOrd = 1.2  # Costo por ordenar\nCosMan = 3  # Costo por mantener\nCosEsc = 4  # Costo por escasez\np =[0.25,0.25,0.25,0.25] # Distribución de probabilidad de la demanda\nMaxCap = 2  # Máxima capacidad del almacén\nD = 3  # Valor máximo de la demanda\n\n# Inicialización de la matriz de costos esperados\nCostoEsperado = np.zeros((N+1 , MaxCap + 1))\nDecisionOptima = np.zeros((N, MaxCap + 1), dtype=int)\n\n# Iteración por etapas\nfor l in range(1, N +1):  # Etapas\n    for s in range(0, MaxCap + 1):  # Estados\n        estado = []\n        for a in range(0, MaxCap - s + 1):  # Acciones\n            esperado = 0\n            for w in range(0, D + 1):  # Demanda\n                esperado += p[w] * (\n                    CosOrd * a\n                    + CosMan * max(0, s + a - w)\n                    + CosEsc * max(0, w - s - a)\n                    + CostoEsperado[l - 1, max(0, s + a - w)]\n                )\n            estado.append(esperado)\n        # Determinación del costo mínimo y la decisión óptima\n        CostoEsperado[l, s] = estado[0]\n        DecisionOptima[l - 1, s] = 0\n        for a in range(1, len(estado)):\n            if estado[a] &lt; CostoEsperado[l, s]:\n                CostoEsperado[l, s] = estado[a]\n                DecisionOptima[l - 1, s] = a\n\n# Resultados\nprint(\"Matriz de Costos Esperados:\")\nprint(CostoEsperado)\nprint(\"Matriz de Decisiones Óptimas:\")\nprint(DecisionOptima)\n\n\nMatriz de Costos Esperados:\n[[ 0.         0.         0.       ]\n [ 4.95       3.75       3.25     ]\n [ 9.6        8.4        7.475    ]\n [14.25      13.05      12.01875  ]\n [18.9       17.7       16.6421875]]\nMatriz de Decisiones Óptimas:\n[[1 0 0]\n [1 0 0]\n [1 0 0]\n [1 0 0]]\n\n\nLos resultados se resumen en las siguientes tablas\n                              Estados\n                       -----------------------\n\n\n\nEpocas de decisión\n0\n1\n2\n\n\n\n\n3\n\n\n\n\n\n2\n\n\n\n\n\n1\n\n\n\n\n\n0",
+    "text": "5.1 Tabla de Acción de Control Óptima\nLos resultados se resumen en las siguientes tablas",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Simulación del Proceso</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Acción de control óptima</span>"
+    ]
+  },
+  {
+    "objectID": "Simulacion.html#tabla-de-acción-de-control-óptima",
+    "href": "Simulacion.html#tabla-de-acción-de-control-óptima",
+    "title": "Acción de control óptima",
+    "section": "",
+    "text": "Estados\n                       -----------------------\n\n\n\nEpocas de decisión\n0\n1\n2\n\n\n\n\n3\n\n\n\n\n\n2\n\n\n\n\n\n1\n\n\n\n\n\n0",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Acción de control óptima</span>"
     ]
   },
   {
