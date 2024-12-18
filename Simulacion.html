@@ -252,8 +252,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Para faciltar los calculos se realizó el siguiente codigo en python, con el cual se genera la sucesión de acciones óptimas y los costos</p>
-<div id="bb6bb0c8" class="cell" data-execution_count="1">
+<p>Para faciltar los calculos se realizó el siguiente codigo en python, con el cual se genera la sucesión de acciones óptimas y los costos mínimos en cada etapa de decisión considerando cada estado del sistema</p>
+<div id="711b317f" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -298,13 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Matriz de Costos Esperados:"</span>)</span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(CostoEsperado)</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Matriz de Decisiones Óptimas:"</span>)</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(DecisionOptima)</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir la matriz de Costos Esperados como tabla</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tabla de costos esperados:"</span>)</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>costos_df <span class="op">=</span> pd.DataFrame(CostoEsperado, columns<span class="op">=</span>[<span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(MaxCap <span class="op">+</span> <span class="dv">1</span>)],</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>                         index<span class="op">=</span>[<span class="ss">f"Etapa_</span><span class="sc">{</span>N<span class="op">-</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N <span class="op">+</span> <span class="dv">1</span>)])</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(costos_df)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(DecisionOptima)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Matriz de Costos Esperados:
@@ -317,16 +311,48 @@ Matriz de Decisiones Óptimas:
 [[1 0 0]
  [1 0 0]
  [1 0 0]
- [1 0 0]]
-Tabla de costos esperados:
-             0      1          2
-Etapa_4   0.00   0.00   0.000000
-Etapa_3   4.95   3.75   3.250000
-Etapa_2   9.60   8.40   7.475000
-Etapa_1  14.25  13.05  12.018750
-Etapa_0  18.90  17.70  16.642187</code></pre>
+ [1 0 0]]</code></pre>
 </div>
 </div>
+<p>Los resultados se resumen en las siguientes tablas</p>
+<pre><code>                              Estados
+                       -----------------------</code></pre>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Epocas de decisión</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 
