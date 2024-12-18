@@ -1,25 +1,73 @@
 project:
   type: book
+  output-dir: _book
+
+website:
+  reader-mode: true
+  search:
+    location: sidebar
+    type: overlay
+  comments:
+    hypothesis: true
 
 book:
-  title: "SISTEMA DE INVENTARIO"
-  author: "Jazmin Sarahí Flores Gómez"
-  date: "27/9/2024"
+  title: "Sistema de inventario"
+  reader-mode: true
+  language: es
+  date: "17/11/2024"
+  output-file: "SISTEMA DE INVENTARIO"
+  # image: logofcfm.png
+  # cover-image: FCFMLOGO.png
+  sharing: [twitter, facebook]
+  downloads: [pdf]
+  # favicon: logofcfm.png
+  sidebar:
+  #  logo: LOGO50.png
+    style: floating
+    collapse-level: 2
+    border: true
+    search: true
+  open-graph: true
+  twitter-card: true
+  #repo-url: https://github.com/Jennlg/Tesis
+  repo-actions: [edit, issue, source]
+  page-navigation: true
   chapters:
     - index.qmd
-    - introduccion.qmd
     - formulacion.qmd
     - dinamica.qmd
     - Costo.qmd
+    - Acciones.qmd
+    - Simulacion.qmd
     - references.qmd
-    
+
+comments:
+    hypothesis: true
 
 bibliography: references.bib
 
 format:
   html:
-    theme: [journal, theme-dark.scss]
+    theme: 
+      dark: slate
+      light: journal
+    highlight-style: a11y
+    lang: es
+    html-math-method: mathjax
+    grid:
+      sidebar-width: 300px
+      body-width: 900px
+      margin-width: 300px
+      gutter-width: 1.5rem
+    code-copy: true
+    code-fold: true
   pdf:
+    lang: es
     documentclass: scrreprt
+    papersize: us-letter
+    #titlegraphic: FCFMLOGO.png
+    institution: Universidad de Sonora
+    email: jazmin_240@live.com
+    keep-tex: true
 editor: visual
 

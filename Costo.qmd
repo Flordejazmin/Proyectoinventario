@@ -1,5 +1,19 @@
 # Descripción y Justificación de la Función de Costo
 
-La función de costo por etapa para cada $(x,a)$ está dada por $$
-\mathbf{C}(x,a)=ca+h(x+a)+p\mathbf{E}[(\xi-x-a)^+]
-$$ donde $c$ $h$ y $p$ son constantes positivas que representan el costo unitario de producción, el costo unitario por almacenamiento y el costo unitario por demanda insatisfecha, respectivamente.
+Para la función de costo por etapa definimos las constantes
+
+-   $\lambda$ : costo unitario de producción.
+
+-   $h$ : costo unitario por almacenamiento
+
+-   $p$: costo unitario por demanda insatisfecha.
+
+La función de costo por etapa para cada $(x,a)$ está dada por 
+$$
+\mathbf{C}(x,a)=\lambda a+h\max\{0,x_t+a_t-\xi_t\}+p\max\{0,\xi_t-x_t-a_t\}
+$$
+De manera que el costo en cada etapa es igual a la cantidad de unidades solicitadas a producción, considerando el costo de  producción, mas el costo de almacenamiento, el cual dependerá del producto en existencia, y considerando que si la demanda excede la producción almacenada se genera un costo de penalización.
+
+Si el objetivo es mejorar las ganancias a lo largo de $N$ etapas bajo el panorama previamente descrito, entonces esto equivale a minimizar el indice de funcionamiento a continuación $$
+J(\pi,x):= \mathbf{E}[\sum_{t=0}^{N-1}\mathbf{C}(x,a)]
+$$

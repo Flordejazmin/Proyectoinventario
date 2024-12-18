@@ -1,0 +1,114 @@
+# Simulación del Proceso
+Para faciltar los calculos se realizó el siguiente codigo en python, con el cual se genera la sucesión de acciones óptimas y los costos mínimos en cada etapa de decisión considerando cada estado del sistema
+```{python}
+import numpy as np
+import pandas as pd
+
+# Parámetros
+N = 4 # Períodos
+CosOrd = 1.2  # Costo por ordenar
+CosMan = 3  # Costo por mantener
+CosEsc = 4  # Costo por escasez
+p =[0.25,0.25,0.25,0.25] # Distribución de probabilidad de la demanda
+MaxCap = 2  # Máxima capacidad del almacén
+D = 3  # Valor máximo de la demanda
+
+# Inicialización de la matriz de costos esperados
+CostoEsperado = np.zeros((N+1 , MaxCap + 1))
+DecisionOptima = np.zeros((N, MaxCap + 1), dtype=int)
+
+# Iteración por etapas
+for l in range(1, N +1):  # Etapas
+    for s in range(0, MaxCap + 1):  # Estados
+        estado = []
+        for a in range(0, MaxCap - s + 1):  # Acciones
+            esperado = 0
+            for w in range(0, D + 1):  # Demanda
+                esperado += p[w] * (
+                    CosOrd * a
+                    + CosMan * max(0, s + a - w)
+                    + CosEsc * max(0, w - s - a)
+                    + CostoEsperado[l - 1, max(0, s + a - w)]
+                )
+            estado.append(esperado)
+        # Determinación del costo mínimo y la decisión óptima
+        CostoEsperado[l, s] = estado[0]
+        DecisionOptima[l - 1, s] = 0
+        for a in range(1, len(estado)):
+            if estado[a] < CostoEsperado[l, s]:
+                CostoEsperado[l, s] = estado[a]
+                DecisionOptima[l - 1, s] = a
+
+# Resultados
+print("Matriz de Costos Esperados:")
+print(CostoEsperado)
+print("Matriz de Decisiones Óptimas:")
+print(DecisionOptima)
+
+```
+
+Los resultados se muetran en las siguientes tablas:
+
+| **Épocas de decisión** | **0** | **1** | **2** |
+|-------------------------|-------|-------|-------|
+| 3                       | 1     | 0     | 0     |
+| 2                       | 1     | 0     | 0     |
+| 1                       | 1     | 0     | 0     |
+| 0                       | 1     | 0     | 0     |
+
+**Tabla 5.1**: Acción de control óptima
+
+La interpretación es la siguiente: en cada etapa de decisión, si el nivel de inventario es cero, entonces la decisión óptima es ordenar una unidad de producto y en otro caso la mejor decisión es no ordenar producto.
+
+
+
+
+| **Épocas de decisión** | **0** | **1** | **2** |
+|-------------------------|-------|-------|-------|
+| 3                       | 4.95  | 3.75  | 3.25  |
+| 2                       | 9.6   | 8.4   | 7.475 |
+| 1                       | 14.25 | 13.05 | 12.01 |
+| 0                       | 18.9  | 17.7  | 16.642|
+
+**Tabla 5.2**: Costos
+
+
+
+
+
+```{python}
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Datos de la tabla
+data = {
+    'Épocas de decisión': [3, 2, 1, 0],
+    '0': [4.95, 9.6, 14.25, 18.9],
+    '1': [3.75, 8.4, 13.05, 17.7],
+    '2': [3.25, 7.475, 12.01, 16.642]
+}
+
+# Convertir a DataFrame
+df = pd.DataFrame(data)
+
+# Crear la gráfica
+plt.figure(figsize=(8, 6))  # Tamaño de la figura
+
+# Graficar cada columna correspondiente a los estados
+plt.plot(df['Épocas de decisión'], df['0'], marker='o', linestyle='-', label='Estado 0')
+plt.plot(df['Épocas de decisión'], df['1'], marker='o', linestyle='-', label='Estado 1')
+plt.plot(df['Épocas de decisión'], df['2'], marker='o', linestyle='-', label='Estado 2')
+
+# Configurar etiquetas y título
+plt.xlabel('Épocas de decisión')
+plt.ylabel('Costos')
+plt.title('Valores por Estado en Función de las Épocas de Decisión')
+plt.gca().invert_xaxis()  # Invertir el eje X para que vaya de 3 a 0
+plt.legend()  # Mostrar leyenda
+plt.grid(True)  # Agregar cuadrícula
+
+# Mostrar la gráfica
+plt.show()
+
+```
+

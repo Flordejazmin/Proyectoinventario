@@ -1,0 +1,3 @@
+# Justificación de las Acciones
+
+ Existen modelos en los que se asume que la capacidad del inventario es infinita, lo cual pocas veces describe la realidad, es por esto que consideramos que la capacidad con la que contamos es finita, es decir que las acciones que se pueden realizar al estar a cargo de un inventario estan limitadas por la capacidad de la bodega y con la cantidad de producto existente en cada etapa. 

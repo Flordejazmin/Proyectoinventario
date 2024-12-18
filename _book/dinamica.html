@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Dinámica del Modelo – SISTEMA DE INVENTARIO</title>
+<title>2&nbsp; Dinámica del Modelo – Sistema de inventario</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -55,19 +57,25 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -99,6 +107,12 @@ window.Quarto = {
 };
 </script>
 
+<meta property="og:title" content="2&nbsp; Dinámica del Modelo – Sistema de inventario">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="Sistema de inventario">
+<meta name="twitter:title" content="2&nbsp; Dinámica del Modelo – Sistema de inventario">
+<meta name="twitter:description" content="">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating">
@@ -107,13 +121,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dinamica.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dinámica del Modelo</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dinamica.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dinámica del Modelo</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -125,12 +139,38 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">SISTEMA DE INVENTARIO</a> 
+      <a href="./">Sistema de inventario</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="./SISTEMA-DE-INVENTARIO.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -138,37 +178,43 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./introduccion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+ <span class="menu-text">Introducción</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./formulacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Formulación del Proceso de decisión de Markov</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Formulación del Proceso de decisión de Markov</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dinamica.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dinámica del Modelo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dinámica del Modelo</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Costo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descripción y Justificación de la Función de Costo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descripción y Justificación de la Función de Costo</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Acciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Justificación de las Acciones</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Simulacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulación del Proceso</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
     </ul>
@@ -176,15 +222,21 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link active" data-scroll-target="#ejemplo"><span class="header-section-number">3</span> Ejemplo:</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dinámica del Modelo</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dinámica del Modelo</span></h1>
 </div>
 
 
@@ -202,18 +254,392 @@ window.Quarto = {
 
 
 <p>La dinámica del sistema evoluciona en el tiempo, de modo que en cada etapa de desición <span class="math inline">\(t\in \{ 0,1,2, \dotso,N \}\)</span> el nivel de inventario es <span class="math inline">\(x_t=x \in \mathbf{X}\)</span> y el controlador toma una desición admisible <span class="math inline">\(a_t= a \in A(x)\)</span>, es decir, solicita cierta cantidad de articulos de acuerdo a la cantidad existente. Entonces: se produce un costo <span class="math inline">\(\mathbf{C}(x,a)\)</span>; luego, el sistema evoluciona a un nuevo estado <span class="math inline">\(x_{t+1}=y \in \mathbf{X}\)</span> de acuerdo a la ley de transición <span class="math inline">\(\mathbf{P}_{x,y}(a)\)</span>, la cual explicaremos a detalle en esta sección.</p>
-<p>Consideremos que el nivel de inventario es representado en cada periodo por medio de la siguiente ecuación: <span class="math display">\[x_{t+1}=(x_t+a_t-\xi_t)^{+}=\max(x_t+a_t-\xi_t,0)\]</span></p>
-<p>donde <span class="math inline">\(\{ \xi_t\}\)</span> es una sucesión de variables aleatorias independientes e idénticamente distribuidas, que toma valores en <span class="math inline">\(\mathbb{N}_{0}\)</span> y función de probabilidad comun <span class="math inline">\(f\)</span> ya conocida.</p>
-<p>Dicha expresión puede ser interpretada del siguiente modo: la cantidad de producto en el periodo <span class="math inline">\(t+1\)</span>, será la cantidad <span class="math inline">\(x_t\)</span> que existía hasta el periodo anterior, más la cantidad <span class="math inline">\(a_t\)</span> solicitada de producto, menos la demanda <span class="math inline">\(\xi_t\)</span> que se surte a los clientes. Dado que no hay acumulación de demanda, la cantidad de producto no puede ser negativa, de manera que, si no se logra surtir toda la demanda, el nivel de inventario al siguiente periodo será cero.</p>
-<p>Suponemos que el nivel de inventario se a venido monitoreando hata el periodo <span class="math inline">\(t\)</span>. Entonces <span class="math display">\[
+<p>Consideremos <span class="math inline">\(\{ \xi_t\}\)</span> una sucesión de variables aleatorias independientes e idénticamente distribuidas, definidas en el mismo espacio de probabilidad <span class="math inline">\((\Omega,\mathbf{F},P)\)</span>; tal que toman valores en algun conjunto numerable <span class="math inline">\(\mathbf{S}\)</span> y función de probabilidad comun <span class="math inline">\(f\)</span> conocida. Es decir, para cada <span class="math inline">\(k\in\mathbf{S}\)</span> <span class="math display">\[
+f(k)=P[\xi_t=k]
+\]</span> entonces el nivel de inventario es representado en cada periodo por medio de la siguiente ecuación: <span class="math display">\[x_{t+1}=(x_t+a_t-\xi_t)^{+}=\max(x_t+a_t-\xi_t,0)\]</span></p>
+<p>Dicha expresión puede ser interpretada del siguiente modo: la cantidad de producto en el periodo <span class="math inline">\(t+1\)</span>, será la cantidad <span class="math inline">\(x_t\)</span> que existía hasta el periodo anterior, más la cantidad <span class="math inline">\(a_t\)</span> solicitada de producto, menos la demanda <span class="math inline">\(\xi_t\)</span> que se surte a los clientes. Dado que no hay acumulación de demanda, la cantidad de producto no puede ser negativa, de manera que, si no se logra surtir toda la demanda, el nivel de inventario en el siguiente periodo será cero.</p>
+<p>Suponemos que el nivel de inventario se a venido monitoreando hata el periodo <span class="math inline">\(t\)</span>. Entonces, la probabilidad de contar con una cantidad <span class="math inline">\(x\)</span> de articulos, solicitar <span class="math inline">\(a\)</span> articulos y transitar a un nivel de inventario <span class="math inline">\(y\)</span> es: <span class="math display">\[
 \mathbf{P}_{x,y}(a)= P[x_{t+1}=y \mid x_t=x, a_t=a]
 \]</span> <span class="math display">\[
 =P[(x_t+a_t-\xi_t)^{+}=y \mid x_t=x, a_t=a]
 \]</span> <span class="math display">\[
 =P[(x+a-\xi_t)^{+}=y]
-\]</span></p>
+\]</span> <span class="math display">\[
+=\sum_{k\in Y}f(k)
+\]</span> donde <span class="math inline">\(Y=\{k \in \mathbf{S} \mid (x+a-k)^+=y\}\)</span></p>
+<section id="ejemplo" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Ejemplo:</h1>
+<p>Consideremos el problema de control de inventario donde la capacidad del almacen es <span class="math inline">\(M=2\)</span>, entonces <span class="math display">\[
+\mathbf{X}=\mathbf{A}=\{0,1,2\}
+\]</span> por lo que, existen tres posibilidades: el almacen está vacio, contiene 1 árticulo, o contiene 2 árticulos. Además supongamos que la demanda <span class="math inline">\(\xi_t\)</span> toma valores en el conjunto <span class="math inline">\(\mathbf{S}=\{0,1,2,3\}\)</span> con distribución de probabilidad unifore en todos los periodos, es decir <span class="math inline">\(P[\xi_t=k]=\frac{1}{4}\)</span>, para cada <span class="math inline">\(k\in\mathbf{S}\)</span>.</p>
+<p>Para la acción <span class="math inline">\(a=0\)</span> la cual es admisible para todos los estados, tenemos la siguiente tabla de transiciones:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 25%">
+<col style="width: 24%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>x</th>
+<th>a</th>
+<th>y</th>
+<th><span class="math inline">\(\mathbf{P}_{x,y}(a)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>contar con <span class="math inline">\(0\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 0 artículos</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>contar con <span class="math inline">\(0\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 1 artículos</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>contar con <span class="math inline">\(0\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 2 artículos</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>contar con <span class="math inline">\(1\)</span> artículo</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 0 artículos</td>
+<td><span class="math inline">\(\frac{3}{4}\)</span></td>
+</tr>
+<tr class="odd">
+<td>contar con <span class="math inline">\(1\)</span> artículo</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 1 artículos</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td>contar con <span class="math inline">\(1\)</span> artículo</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 2 artículos</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>contar con <span class="math inline">\(2\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 0 artículos</td>
+<td><span class="math inline">\(\frac{2}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td>contar con <span class="math inline">\(2\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 1 artículos</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+<tr class="odd">
+<td>contar con <span class="math inline">\(2\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(0\)</span> artículos</td>
+<td>contar con 2 artículos</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 133.00 207.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 203.2)">
+<title>MDP</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-203.2 129,-203.2 129,4 -4,4"></polygon>
+<!-- 0 -->
+<g id="node1" class="node">
+<title>0</title>
+<ellipse fill="none" stroke="pink" cx="27" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">0</text>
+</g>
+<!-- 0&#45;&gt;0 -->
+<g id="edge1" class="edge">
+<title>0-&gt;0</title>
+<path fill="none" stroke="pink" d="M51.99,-25.41C62.77,-26.02 72,-23.55 72,-18 72,-13.06 64.68,-10.56 55.46,-10.5"></path>
+<polygon fill="pink" stroke="pink" points="54.96,-9.46 51.99,-10.59 55.01,-11.56 54.96,-9.46"></polygon>
+<text text-anchor="middle" x="74" y="-15.6" font-family="Times,serif" font-size="8.00">1</text>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="pink" cx="27" cy="-181.2" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-177" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- 2&#45;&gt;0 -->
+<g id="edge2" class="edge">
+<title>2-&gt;0</title>
+<path fill="none" stroke="pink" d="M24.59,-163.24C22.92,-150.67 20.86,-133.1 20,-117.6 19.11,-101.62 19.11,-97.58 20,-81.6 20.8,-67.31 22.61,-51.26 24.19,-39"></path>
+<polygon fill="pink" stroke="pink" points="25.24,-39.07 24.59,-35.96 23.16,-38.8 25.24,-39.07"></polygon>
+<text text-anchor="middle" x="25" y="-97.2" font-family="Times,serif" font-size="8.00">0.5</text>
+</g>
+<!-- 2&#45;&gt;2 -->
+<g id="edge6" class="edge">
+<title>2-&gt;2</title>
+<path fill="none" stroke="pink" d="M51.99,-188.61C62.77,-189.22 72,-186.75 72,-181.2 72,-176.26 64.68,-173.76 55.46,-173.7"></path>
+<polygon fill="pink" stroke="pink" points="54.96,-172.66 51.99,-173.79 55.01,-174.76 54.96,-172.66"></polygon>
+<text text-anchor="middle" x="79" y="-178.8" font-family="Times,serif" font-size="8.00">0.25</text>
+</g>
+<!-- 1 -->
+<g id="node3" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="pink" cx="66" cy="-99.6" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="66" y="-95.4" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- 2&#45;&gt;1 -->
+<g id="edge5" class="edge">
+<title>2-&gt;1</title>
+<path fill="none" stroke="pink" d="M35.08,-163.71C41.3,-151.01 49.92,-133.42 56.48,-120.03"></path>
+<polygon fill="pink" stroke="pink" points="57.55,-120.23 57.93,-117.07 55.67,-119.3 57.55,-120.23"></polygon>
+<text text-anchor="middle" x="55" y="-138" font-family="Times,serif" font-size="8.00">0.25</text>
+</g>
+<!-- 1&#45;&gt;0 -->
+<g id="edge3" class="edge">
+<title>1-&gt;0</title>
+<path fill="none" stroke="pink" d="M57.92,-82.11C51.7,-69.41 43.08,-51.82 36.52,-38.43"></path>
+<polygon fill="pink" stroke="pink" points="37.33,-37.7 35.07,-35.47 35.45,-38.63 37.33,-37.7"></polygon>
+<text text-anchor="middle" x="55" y="-56.4" font-family="Times,serif" font-size="8.00">0.75</text>
+</g>
+<!-- 1&#45;&gt;1 -->
+<g id="edge4" class="edge">
+<title>1-&gt;1</title>
+<path fill="none" stroke="pink" d="M90.99,-107.01C101.77,-107.62 111,-105.15 111,-99.6 111,-94.66 103.68,-92.16 94.46,-92.1"></path>
+<polygon fill="pink" stroke="pink" points="93.96,-91.06 90.99,-92.19 94.01,-93.16 93.96,-91.06"></polygon>
+<text text-anchor="middle" x="118" y="-97.2" font-family="Times,serif" font-size="8.00">0.25</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Para la acción <span class="math inline">\(a=1\)</span> la cual es admisible cuando el nivel del almacen es <span class="math inline">\(0\)</span> o <span class="math inline">\(1\)</span>, tenemos la siguiente tabla de transiciones:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>x</th>
+<th>a</th>
+<th>y</th>
+<th><span class="math inline">\(\mathbf{P}_{x,y}(a)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>contar con <span class="math inline">\(0\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(1\)</span> artículo</td>
+<td>contar con 0 artículos</td>
+<td><span class="math inline">\(\frac{3}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td>contar con <span class="math inline">\(0\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(1\)</span> artículo</td>
+<td>contar con 1 artículos</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+<tr class="odd">
+<td>contar con <span class="math inline">\(0\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(1\)</span> artículo</td>
+<td>contar con 2 artículos</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>contar con <span class="math inline">\(1\)</span> artículo</td>
+<td>solicitar <span class="math inline">\(1\)</span> artículo</td>
+<td>contar con 0 artículos</td>
+<td><span class="math inline">\(\frac{2}{4}\)</span></td>
+</tr>
+<tr class="odd">
+<td>contar con <span class="math inline">\(1\)</span> artículo</td>
+<td>solicitar <span class="math inline">\(1\)</span> artículo</td>
+<td>contar con 1 artículos</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td>contar con <span class="math inline">\(1\)</span> artículo</td>
+<td>solicitar <span class="math inline">\(1\)</span> artículo</td>
+<td>contar con 2 artículos</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 94.00 207.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 203.2)">
+<title>MDP</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-203.2 90,-203.2 90,4 -4,4"></polygon>
+<!-- 0 -->
+<g id="node1" class="node">
+<title>0</title>
+<ellipse fill="none" stroke="pink" cx="27" cy="-181.2" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-177" font-family="Times,serif" font-size="14.00">0</text>
+</g>
+<!-- 0&#45;&gt;0 -->
+<g id="edge1" class="edge">
+<title>0-&gt;0</title>
+<path fill="none" stroke="pink" d="M51.99,-188.61C62.77,-189.22 72,-186.75 72,-181.2 72,-176.26 64.68,-173.76 55.46,-173.7"></path>
+<polygon fill="pink" stroke="pink" points="54.96,-172.66 51.99,-173.79 55.01,-174.76 54.96,-172.66"></polygon>
+<text text-anchor="middle" x="79" y="-178.8" font-family="Times,serif" font-size="8.00">0.75</text>
+</g>
+<!-- 1 -->
+<g id="node2" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="pink" cx="27" cy="-99.6" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-95.4" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g id="edge2" class="edge">
+<title>0-&gt;1</title>
+<path fill="none" stroke="pink" d="M16.04,-164.43C11.49,-156.04 7.73,-145.45 10,-135.6 11.25,-130.16 13.47,-124.58 15.9,-119.52"></path>
+<polygon fill="pink" stroke="pink" points="16.87,-119.92 17.26,-116.77 14.99,-118.99 16.87,-119.92"></polygon>
+<text text-anchor="middle" x="17" y="-138" font-family="Times,serif" font-size="8.00">0.25</text>
+</g>
+<!-- 1&#45;&gt;0 -->
+<g id="edge3" class="edge">
+<title>1-&gt;0</title>
+<path fill="none" stroke="pink" d="M27,-117.84C27,-130.14 27,-146.73 27,-159.71"></path>
+<polygon fill="pink" stroke="pink" points="25.95,-159.93 27,-162.93 28.05,-159.93 25.95,-159.93"></polygon>
+<text text-anchor="middle" x="32" y="-138" font-family="Times,serif" font-size="8.00">0.5</text>
+</g>
+<!-- 1&#45;&gt;1 -->
+<g id="edge4" class="edge">
+<title>1-&gt;1</title>
+<path fill="none" stroke="pink" d="M51.99,-107.01C62.77,-107.62 72,-105.15 72,-99.6 72,-94.66 64.68,-92.16 55.46,-92.1"></path>
+<polygon fill="pink" stroke="pink" points="54.96,-91.06 51.99,-92.19 55.01,-93.16 54.96,-91.06"></polygon>
+<text text-anchor="middle" x="79" y="-97.2" font-family="Times,serif" font-size="8.00">0.25</text>
+</g>
+<!-- 2 -->
+<g id="node3" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="pink" cx="27" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- 1&#45;&gt;2 -->
+<g id="edge5" class="edge">
+<title>1-&gt;2</title>
+<path fill="none" stroke="pink" d="M27,-81.33C27,-69.02 27,-52.42 27,-39.45"></path>
+<polygon fill="pink" stroke="pink" points="28.05,-39.24 27,-36.24 25.95,-39.24 28.05,-39.24"></polygon>
+<text text-anchor="middle" x="34" y="-56.4" font-family="Times,serif" font-size="8.00">0.25</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Para la acción <span class="math inline">\(a=2\)</span> la cual es admisible únicamente cuando el nivel del almacen es <span class="math inline">\(0\)</span> tenemos la siguiente tabla de transiciones:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 25%">
+<col style="width: 24%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>x</th>
+<th>a</th>
+<th>y</th>
+<th><span class="math inline">\(\mathbf{P}_{x,y}(a)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>contar con <span class="math inline">\(0\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(2\)</span> artículos</td>
+<td>contar con 0 artículos</td>
+<td><span class="math inline">\(\frac{2}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td>contar con <span class="math inline">\(0\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(2\)</span> artículos</td>
+<td>contar con 1 artículos</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+<tr class="odd">
+<td>contar con <span class="math inline">\(0\)</span> artículos</td>
+<td>solicitar <span class="math inline">\(2\)</span> artículos</td>
+<td>contar con 2 artículos</td>
+<td><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 134.00 125.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 121.6)">
+<title>MDP</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-121.6 130,-121.6 130,4 -4,4"></polygon>
+<!-- 0 -->
+<g id="node1" class="node">
+<title>0</title>
+<ellipse fill="none" stroke="pink" cx="63" cy="-99.6" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="63" y="-95.4" font-family="Times,serif" font-size="14.00">0</text>
+</g>
+<!-- 0&#45;&gt;0 -->
+<g id="edge1" class="edge">
+<title>0-&gt;0</title>
+<path fill="none" stroke="pink" d="M87.99,-107.01C98.77,-107.62 108,-105.15 108,-99.6 108,-94.66 100.68,-92.16 91.46,-92.1"></path>
+<polygon fill="pink" stroke="pink" points="90.96,-91.06 87.99,-92.19 91.01,-93.16 90.96,-91.06"></polygon>
+<text text-anchor="middle" x="113" y="-97.2" font-family="Times,serif" font-size="8.00">0.5</text>
+</g>
+<!-- 1 -->
+<g id="node2" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="pink" cx="27" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g id="edge2" class="edge">
+<title>0-&gt;1</title>
+<path fill="none" stroke="pink" d="M55.54,-82.11C49.8,-69.41 41.84,-51.82 35.79,-38.43"></path>
+<polygon fill="pink" stroke="pink" points="36.64,-37.77 34.45,-35.47 34.73,-38.64 36.64,-37.77"></polygon>
+<text text-anchor="middle" x="55" y="-56.4" font-family="Times,serif" font-size="8.00">0.25</text>
+</g>
+<!-- 2 -->
+<g id="node3" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="pink" cx="99" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- 0&#45;&gt;2 -->
+<g id="edge3" class="edge">
+<title>0-&gt;2</title>
+<path fill="none" stroke="pink" d="M70.46,-82.11C76.2,-69.41 84.16,-51.82 90.21,-38.43"></path>
+<polygon fill="pink" stroke="pink" points="91.27,-38.64 91.55,-35.47 89.36,-37.77 91.27,-38.64"></polygon>
+<text text-anchor="middle" x="90" y="-56.4" font-family="Times,serif" font-size="8.00">0.25</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -236,6 +662,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = true;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -259,12 +829,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiado");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiado");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -639,12 +1209,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./formulacion.html" class="pagination-link" aria-label="Formulación del Proceso de decisión de Markov">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Formulación del Proceso de decisión de Markov</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Formulación del Proceso de decisión de Markov</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Costo.html" class="pagination-link" aria-label="Descripción y Justificación de la Función de Costo">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descripción y Justificación de la Función de Costo</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descripción y Justificación de la Función de Costo</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

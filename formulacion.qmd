@@ -1,10 +1,10 @@
 # Formulación del Proceso de decisión de Markov
 
-Considere un sistema de inventario a tiempo discreto, de un solo producto y que cuenta con una capacidad finita $M>0$. supongamos que se pretende maximizar ganancias através dedecidir cuánto producto solicitar a su proveedor a fin de solventar la demanda de sus clientes en cada período y dependiendo del stock (producto en existencia almacenado), cuya información se obtiene al realizar el inventario. Bajo tal escenario, para cada $t\in \{0,1,2, \dotso N\}$ podemos suponer que
+Considere un sistema de inventario a tiempo discreto, de un solo producto y que cuenta con una capacidad finita $M>0$. Supongamos que se pretende maximizar ganancias através dedecidir cuánto producto solicitar a su proveedor a fin de solventar la demanda de sus clientes en cada período y dependiendo del stock (producto en existencia almacenado), cuya información se obtiene al realizar el inventario. Bajo tal escenario, para cada $t\in \{0,1,2, \dotso N\}$ podemos suponer que
 
 * $x_t$ : representa el nivel de inventario al inicio de cada periodo $t$.
 
-* $a_n$ : representa la cantidad de producto que se ordena al inicio del periodo $t$.
+* $a_t$ : representa la cantidad de producto que se ordena al inicio del periodo $t$.
 
 * $\xi_t$: representa la demanda del producto durante el periodo $t$.
 
